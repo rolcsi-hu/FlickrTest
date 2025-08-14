@@ -9,9 +9,12 @@ import Testing
 @testable import FlickrTest
 
 struct FlickrTestTests {
-
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    
+    @MainActor @Test("searchText retreived from AppStorage") func testInitSearchText() {
+        let viewModel = MasterViewModel()
+        #expect(viewModel.searchText == viewModel.storedSearchText)
     }
-
+    
+    
+    
 }
